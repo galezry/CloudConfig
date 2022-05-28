@@ -11,7 +11,7 @@ spring:
         - Path=/books/**
         filters:
         - RewritePath=/books/(?<segment>.*), /$\{segment}
-#         - name: Hystrix
+        - name: Hystrix
           args:
             name: monitor-books
             fallbackUri: forward:/fallback/serviceBooks
