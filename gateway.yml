@@ -64,7 +64,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: hystrix.stream, info, health
+#         include: hystrix.stream, info, health
+        include: info, health
 # hystrix:
 #    dashboard:
 #        proxy-stream-allow-list: "*"
