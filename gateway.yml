@@ -11,8 +11,8 @@ spring:
         - Path=/books/**
         filters:
         - RewritePath=/books/(?<segment>.*), /$\{segment}
-#         - name: Hystrix
-        - name: Resilience4J
+        - name: Hystrix
+#         - name: Resilience4J
           args:
             name: monitor-books
             fallbackUri: forward:/fallback/serviceBooks
@@ -22,8 +22,8 @@ spring:
         - Path=/srva/**
         filters:
         - RewritePath=/srva/(?<segment>.*), /$\{segment}
-#         - name: Hystrix
-        - name: Resilience4J
+        - name: Hystrix
+#         - name: Resilience4J
           args:
             name: monitor-srvA
             fallbackUri: forward:/fallback/serviceA
@@ -44,8 +44,8 @@ spring:
         - Path=/weather/**
         filters:
         - RewritePath=/weather/(?<segment>.*), /$\{segment}
-#         - name: Hystrix
-        - name: Resilience4J
+        - name: Hystrix
+#         - name: Resilience4J
           args:
             name: monitor-weather
             fallbackUri: forward:/fallback/serviceWeather  
@@ -68,10 +68,10 @@ management:
   endpoints:
     web:
       exposure:
-#         include: hystrix.stream, info, health
-        include: Resilience4J.stream, info, health
+        include: hystrix.stream, info, health
+#         include: Resilience4J.stream, info, health
         include: info, health
-# hystrix:
-Resilience4J:
+# Resilience4J:
+hystrix:
    dashboard:
        proxy-stream-allow-list: "*"
