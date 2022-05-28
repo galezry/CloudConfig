@@ -41,7 +41,7 @@ spring:
         - Path=/weather/**
         filters:
         - RewritePath=/weather/(?<segment>.*), /$\{segment}
-        - name: Hystrix
+#         - name: Hystrix
           args:
             name: monitor-weather
             fallbackUri: forward:/fallback/serviceWeather  
