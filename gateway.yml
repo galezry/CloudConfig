@@ -11,7 +11,8 @@ spring:
         - Path=/books/**
         filters:
         - RewritePath=/books/(?<segment>.*), /$\{segment}
-        - name: Hystrix
+#         - name: Hystrix
+        - name: Resilience4J
           args:
             name: monitor-books
             fallbackUri: forward:/fallback/serviceBooks
@@ -21,7 +22,8 @@ spring:
         - Path=/srva/**
         filters:
         - RewritePath=/srva/(?<segment>.*), /$\{segment}
-        - name: Hystrix
+#         - name: Hystrix
+        - name: Resilience4J
           args:
             name: monitor-srvA
             fallbackUri: forward:/fallback/serviceA
@@ -31,7 +33,8 @@ spring:
         - Path=/srvb/**
         filters:
         - RewritePath=/srvb/(?<segment>.*), /$\{segment}
-        - name: Hystrix
+#         - name: Hystrix
+        - name: Resilience4J
           args:
             name: monitor-srvB
             fallbackUri: forward:/fallback/serviceB  
@@ -42,6 +45,7 @@ spring:
         filters:
         - RewritePath=/weather/(?<segment>.*), /$\{segment}
 #         - name: Hystrix
+        - name: Resilience4J
           args:
             name: monitor-weather
             fallbackUri: forward:/fallback/serviceWeather  
