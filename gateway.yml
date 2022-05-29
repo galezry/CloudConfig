@@ -70,7 +70,7 @@ management:
       exposure:
         include: hystrix.stream, info, health
 #         include: Resilience4J.stream, info, health
-        include: info, health
+#         include: info, health
 # Resilience4J:
 hystrix:
    dashboard:
