@@ -22,8 +22,8 @@ spring:
         - Path=/srva/**
         filters:
         - RewritePath=/srva/(?<segment>.*), /$\{segment}
-        - name: Hystrix
-#         - name: CircuitBreaker
+#         - name: Hystrix
+        - name: CircuitBreaker
           args:
             name: monitor-srvA
             fallbackUri: forward:/fallback/serviceA
@@ -72,6 +72,6 @@ management:
 #         include: CircuitBreaker.stream, info, health
 #         include: info, health
 # CircuitBreaker:
-# hystrix:
-#    dashboard:
-#        proxy-stream-allow-list: "*"
+hystrix:
+   dashboard:
+       proxy-stream-allow-list: "*"
