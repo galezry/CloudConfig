@@ -68,8 +68,8 @@ management:
   endpoints:
     web:
       exposure:
-#         include: hystrix.stream, info, health
-        include: resilience4j.stream, info, health
+        include: hystrix.stream, info, health
+#         include: resilience4j.stream, info, health
 #         include: info, health
 # circuitBreaker:
 hystrix:
