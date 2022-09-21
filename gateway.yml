@@ -12,7 +12,6 @@ spring:
         filters:
         - RewritePath=/books/(?<segment>.*), /$\{segment}
         - name: Hystrix
-#         - name: CircuitBreaker
           args:
             name: monitor-books
             fallbackUri: forward:/fallback/serviceBooks
@@ -23,7 +22,6 @@ spring:
         filters:
         - RewritePath=/srva/(?<segment>.*), /$\{segment}
         - name: Hystrix
-#         - name: CircuitBreaker
           args:
             name: monitor-srvA
             fallbackUri: forward:/fallback/serviceA
@@ -34,7 +32,6 @@ spring:
         filters:
         - RewritePath=/srvb/(?<segment>.*), /$\{segment}
         - name: Hystrix
-#         - name: CircuitBreaker
           args:
             name: monitor-srvB
             fallbackUri: forward:/fallback/serviceB  
@@ -44,8 +41,7 @@ spring:
         - Path=/weather/**
         filters:
         - RewritePath=/weather/(?<segment>.*), /$\{segment}
-#         - name: Hystrix
-#         - name: CircuitBreaker
+        - name: Hystrix
           args:
             name: monitor-weather
             fallbackUri: forward:/fallback/serviceWeather  
@@ -69,9 +65,6 @@ management:
     web:
       exposure:
         include: hystrix.stream, info, health
-#         include: resilience4j.stream, info, health
-#         include: info, health
-# circuitBreaker:
 hystrix:
    dashboard:
        proxy-stream-allow-list: "*"
